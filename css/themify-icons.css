@@ -32,3 +32,15 @@
 .ti-linkedin:before {
 	content: "\e735";
 }
+.ti-angle-up:before {
+	content: "\e648";
+}
+.ti-angle-right:before {
+	content: "\e649";
+}
+.ti-angle-left:before {
+	content: "\e64a";
+}
+.ti-angle-down:before {
+	content: "\e64b";
+}
