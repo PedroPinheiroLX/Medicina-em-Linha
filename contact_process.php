@@ -1,37 +1,61 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $to = "spn8@spondonit.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+    // Obter e limpar os valores do formulário
+    $subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
+    $message = isset($_POST['message']) ? trim($_POST['message']) : '';
+    $name    = isset($_POST['name']) ? trim($_POST['name']) : '';
+    $email   = isset($_POST['email']) ? trim($_POST['email']) : '';
 
-    $headers = "From: $from";
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    // Inicializar array para mensagens de erro
+    $errors = [];
 
-    $subject = "You have a message from your Bitmap Photography.";
+    // Validar email (tem de conter '@')
+    if (empty($email) || strpos($email, '@') === false) {
+        $errors[] = "Por favor, introduza um endereço de email válido.";
+    }
 
-    $logo = 'img/logo.png';
-    $link = '#';
+    // Validar nome (mais de 2 caracteres)
+    if (empty($name) || strlen($name) <= 2) {
+        $errors[] = "Por favor, introduza o seu nome completo (mínimo 3 caracteres).";
+    }
 
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
+    // Validar mensagem (mais de 10 caracteres)
+    if (empty($message) || strlen($message) <= 10) {
+        $errors[] = "Por favor, escreva uma mensagem com pelo menos 10 caracteres.";
+    }
 
-    $send = mail($to, $subject, $body, $headers);
+    // Validar se o assunto foi selecionado
+    if (empty($subject)) {
+        $errors[] = "Por favor, selecione o motivo da consulta.";
+    }
 
+    // Se houver erros, mostrá-los e terminar
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<p style='color:red;'>$error</p>";
+        }
+        exit;
+    }
+
+    // Preparar parâmetros do email
+    $para = $email;
+    $assunto_email = "Nova mensagem através do site - " . $subject;
+    $corpo_email = "Recebeu uma nova mensagem através do formulário de contacto do site.\n\n".
+                   "Detalhes:\n".
+                   "Nome: $name\n".
+                   "Email: $email\n".
+                   "Mensagem:\n$message\n";
+
+    // Cabeçalhos do email
+    $headers = "From: medicinaemlinha@outlook.pt\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+    // Tentar enviar o email
+    if (mail($para, $assunto_email, $corpo_email, $headers)) {
+        echo "<p>Obrigado pelo seu contacto. A sua mensagem foi enviada com sucesso.</p>";
+    } else {
+        echo "<p>Ocorreu um erro ao enviar a sua mensagem. Por favor, tente novamente mais tarde.</p>";
+    }
+}
 ?>
