@@ -131,6 +131,7 @@
 
     // for filter
     // init Isotope
+    /*
     var $grid = $('.grid').isotope({
       itemSelector: '.grid-item',
       percentPosition: true,
@@ -139,6 +140,7 @@
         columnWidth: 1
       }
     });
+    */
 
     // filter items on button click
     $('.portfolio-menu').on('click', 'button', function () {
@@ -154,13 +156,14 @@
     });
 
     // wow js
-    new WOW().init();
+    // new WOW().init();
 
     // counter 
-    $('.counter').counterUp({
+    /* $('.counter').counterUp({
       delay: 10,
       time: 10000
     });
+    */
 
 
     // scrollIt for smoth scroll
@@ -175,6 +178,7 @@
     });
 
     // scrollup bottom to top
+    /*
     $.scrollUp({
       scrollName: 'scrollUp', // Element ID
       topDistance: '4500', // Distance from top before showing element (px)
@@ -185,6 +189,7 @@
       scrollText: '<i class="fa fa-angle-double-up"></i>', // Text for element
       activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
     });
+    */
 
 
     //brand-active

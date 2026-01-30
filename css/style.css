@@ -661,101 +661,6 @@ h3 {
   }
 }
 
-@media (max-width: 767px) {
-
-  .mobile_menu {
-    position: absolute;
-    right: 0px;
-    width: 100%;
-    z-index: 9;
-  }
-}
-
-.slicknav_menu .slicknav_nav {
-  background: #fff;
-  float: right;
-  width: 95%;
-  border-radius: 0px;
-  margin-top: 5px;
-  left: 0;
-  right: 0;
-  top: 11px;
-}
-
-.slicknav_menu .slicknav_nav a:hover {
-  background: transparent;
-  color: #009DFF;
-}
-
-.slicknav_menu .slicknav_nav a.active {
-  color: #009DFF;
-}
-
-@media (max-width: 767px) {
-
-  .slicknav_menu .slicknav_nav a i {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-
-  .slicknav_menu .slicknav_nav a i {
-    display: none;
-  }
-}
-
-.slicknav_menu .slicknav_nav .slicknav_btn {
-  background-color: transparent;
-  cursor: pointer;
-  margin-bottom: 10px;
-  margin-top: -40px;
-  position: relative;
-  z-index: 99;
-  border: 1px solid #ddd;
-  top: 3px;
-  right: 5px;
-  top: -36px;
-}
-
-.slicknav_menu .slicknav_nav .slicknav_btn .slicknav_icon {
-  margin-right: 6px;
-  margin-top: 3px;
-  position: relative;
-  padding-bottom: 3px;
-  top: -11px;
-  right: -5px;
-}
-
-@media (max-width: 767px) {
-
-  .slicknav_menu {
-    margin-right: 0px;
-  }
-}
-
-.slicknav_nav .slicknav_arrow {
-  float: right;
-  font-size: 22px;
-  position: relative;
-  top: -9px;
-}
-
-.slicknav_btn {
-  background-color: transparent;
-  cursor: pointer;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 99;
-  border: none;
-  border-radius: 3px;
-  top: 5px;
-  padding: 5px;
-  right: 0;
-  margin-top: -5px;
-  top: -50px;
-}
-
 .header-area {
   left: 0;
   right: 0;
@@ -796,38 +701,41 @@ h3 {
 }
 
 
-@media (max-width: 767px) {
+.header-area .main-header-area .logo-img img {
+  max-width: 45%;
+}
+
+@media (max-width: 921px) {
 
   .header-area .main-header-area {
     padding: 10px 0;
   }
 
-  /* line 45, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_header.scss */
   .header-area .main-header-area .logo-img img {
-    width: 100px;
-    height: 70px;
+    width: 40%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
 
-  /* line 45, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_header.scss */
   .header-area .main-header-area .logo-img img {
-    width: 140px;
-    height: 82px;
+    max-width: 50%;
+    max-height: 80%;
   }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
 
-  /* line 31, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_header.scss */
   .header-area .main-header-area .logo-img img {
-    width: 185px;
-    height: 103px;
+    max-width: 60%;
+    max-height: 90%;
   }
 }
 
-/* line 57, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_header.scss */
 .header-area .main-header-area .Appointment {
   display: -webkit-box;
   display: -moz-box;
@@ -910,6 +818,7 @@ h3 {
   color: #009DFF;
   border: 1px solid #009DFF;
 }
+
 .header-area .main-header-area .main-menu {
   text-align: center;
   padding: 12px 0;
@@ -975,7 +884,6 @@ h3 {
 /* line 216, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_header.scss */
 .header-area .main-header-area.sticky {
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
-  position: fixed;
   width: 100%;
   top: -70px;
   left: 0;
@@ -985,7 +893,7 @@ h3 {
   transition: transform 500ms ease, background 500ms ease;
   -webkit-transition: transform 500ms ease, background 500ms ease;
   box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
-/*  background: rgba(255, 255, 255, 0.96); */
+  /*  background: rgba(255, 255, 255, 0.96); */
 }
 
 @media (max-width: 767px) {
@@ -1100,6 +1008,11 @@ h3 {
   padding-right: 5%;
 }
 
+.introduction_area .custom_container .image_section img {
+  margin-top: 2%;
+  max-height: 95%;
+}
+
 @media (max-width: 767px) {
   .introduction_area .custom_container .text_section h1 {
     font-size: 26px;
@@ -1119,15 +1032,21 @@ h3 {
   flex-wrap: wrap;
   background-color: #89CFF0;
   padding-top: 3%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-right: 3%;
   padding-bottom: 3%;
+}
+
+@media (max-width: 921px) {
+  #approach_area .custom_container {
+    padding-left: 5%;
+  }
+
 }
 
 #approach_area .custom_container .image_section {
   flex: 1;
   display: flex;
-  justify-content: left;
+  padding-right: 2%;
 }
 
 
@@ -1174,9 +1093,14 @@ h3 {
   flex-wrap: wrap;
   background-color: #89CFF0;
   padding-top: 3%;
-  padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 3%;
+}
+
+@media (max-width: 921px) {
+  #about_us_area .custom_container {
+    padding-left: 5%;
+  }
 
 }
 
@@ -1185,7 +1109,7 @@ h3 {
   display: flex;
   justify-content: left;
   padding-left: 0;
-  padding-right: 5%;
+  padding-right: 2%;
 }
 
 
@@ -1204,7 +1128,7 @@ h3 {
 }
 
 #contact_section .container {
-  flex: 2;
+  flex: 1.7;
   display: flex;
   justify-content: left;
   margin-left: 0;
@@ -1212,7 +1136,7 @@ h3 {
   padding-left: 5%;
 }
 
-#contact_section .image_section{
+#contact_section .image_section {
   flex: 1.5;
   display: flex;
   justify-content: center;
@@ -1231,7 +1155,7 @@ h3 {
 
   /* line 133, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_contact.scss */
   #contact_section {
-    padding: 70px 0 40px;
+    padding: 40px 0 40px;
   }
 }
 
@@ -1239,7 +1163,7 @@ h3 {
 
   /* line 133, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_contact.scss */
   #contact_section {
-    padding: 80px 0 50px;
+    padding: 70px 0 50px;
   }
 }
 
@@ -1256,12 +1180,20 @@ h3 {
   background-color: #ff5e13;
 }
 
-.contact-title {
-  padding-bottom: 2%;
+@media (max-width: 991px) {
+  .contact-title {
+    padding-bottom: 6%;
+  }
+}
+
+@media (min-width: 992px) {
+  .contact-title {
+    padding-bottom: 3%;
+  }
 }
 
 .testmonial_area {
-  background-image: url(../img/testmonial/doctor-patient-trust.jpg);
+  background-image: url(../img/doctor-patient-trust.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1335,20 +1267,41 @@ h3 {
   color: #000;
 }
 
-/* Image section (1/3 width) */
+@media (max-width: 1200px) {
+  .text_section p {
+    font-size: 20px;
+  }
+
+  .text_section p br {
+    display: none;
+  }
+}
+
+/* Image section (1/3 width) 
 .image_section {
   flex: 1;
-  /* Takes up 1 part of the space */
   display: flex;
-  justify-content: right;
-  padding-right: 5%;
-  /* Center the image horizontally */
 }
+
+*/
 
 .image_section img {
   max-width: 100%;
   max-height: 100%;
 }
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .image_section img {
+    max-width: 100%;
+    max-height: 75%;
+  }
+
+  #main_doctor {
+    transform: translate(55px, 40px);
+  }
+}
+
 
 /* Responsive adjustment for smaller screens */
 @media (max-width: 768px) {
@@ -1507,6 +1460,12 @@ h3 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .footer {
+    margin-bottom: 530px;
+  }
 }
 
 /* line 6, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_footer.scss */
@@ -1828,6 +1787,7 @@ h3 {
   /* line 3, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_service.scss */
   .service_area .single_service {
     padding: 40px 20px;
+    border-right: hidden;
   }
 }
 
@@ -3283,4 +3243,5 @@ h6 {
 .switch-wrap {
   margin-bottom: 10px;
 }
+
 /*# sourceMappingURL=style.css.map */
