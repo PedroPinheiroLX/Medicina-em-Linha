@@ -90,7 +90,7 @@
 
 
   });
-})(jQuery);	
+})(jQuery);
 
 (function () {
   var translations = window.melTranslations || {
@@ -103,12 +103,18 @@
       'notice.wait': 'Please wait a few seconds before submitting the form.',
       'notice.fail': 'Submission failed. Please try again.',
       'notice.fail_generic': 'Submission failed. Please try again.'
+    },
+    es: {
+      'notice.wait': 'Por favor, espere unos segundos antes de enviar el formulario.',
+      'notice.fail': 'El envío falló. Inténtelo de nuevo.',
+      'notice.fail_generic': 'El envío falló. Inténtelo de nuevo.'
     }
   };
   window.melTranslations = translations;
 
   function getLang() {
-    return localStorage.getItem('mel_lang') || 'pt';
+    var stored = localStorage.getItem('mel_lang') || 'pt';
+    return ['pt', 'en', 'es'].indexOf(stored) >= 0 ? stored : 'pt';
   }
 
   function t(key) {
@@ -209,17 +215,17 @@
     'services.tele.title': 'Teleconsultas',
     'services.tele.body': 'Consulte profissionais de saúde sem precisar de se deslocar.',
     'services.rx.title': 'Prescrições/Receitas',
-    'services.rx.body': 'Para administração de medicamentos, tratamentos ou exames específicos.',
+    'services.rx.body': 'Para renovação de receituário crónico, prescrição de exames médicos e emissão de declarações.',
     'services.home.title': 'Consultas ao Domicílio',
     'services.home.body': 'Atendimentos médicos realizados na sua residência por um profissional de saúde.',
     'approach.title': 'Abordagem',
-    'approach.body': 'Na MEL, acreditamos que a saúde deve ser acessível a todos, independentemente da localização ou circunstâncias individuais. Oferecemos uma ampla gama de serviços médicos, incluindo teleconsultas e aconselhamento médico, prescrição de receituário crónico e métodos complementares de diagnóstico à distância, para utentes dos 0 aos 100 anos.<br><br>Além disso, fornecemos serviços presenciais, incluindo consultas ao domicílio num raio de 100km<br>de distância de Lisboa, para atender às necessidades de saúde imediatas dos nossos pacientes.',
+    'approach.body': 'Na MEL, acreditamos que a saúde deve ser acessível a todos, independentemente da localização ou circunstâncias individuais. Oferecemos uma ampla gama de serviços médicos, incluindo teleconsultas e aconselhamento médico, prescrição de receituário crónico e métodos complementares de diagnóstico à distância, para utentes dos 0 aos 100 anos.<br><br>Além disso, fornecemos serviços presenciais, incluindo consultas ao domicílio num raio de 100 km<br> de distância de Lisboa, para atender às necessidades de saúde imediatas dos nossos pacientes.',
     'coverage.title': 'Áreas Abrangidas',
     'coverage.intro': 'Realizamos consultas presenciais ao domicílio em 4 Distritos e mais de 30 Concelhos:',
     'coverage.lisbon': '<u>Distrito de Lisboa</u>: Concelhos de Lisboa, Alenquer, Amadora, Arruda dos Vinhos, Azambuja, Cadaval, Cascais, Loures, Lourinhã, Mafra, Odivelas, Oeiras, Sintra, Sobral de Monte Agraço, Torres Vedras e Vila Franca de Xira.',
-    'coverage.leiria': '<u>Distrito de Leiria</u>: Concelhos de Bombarral, Óbidos e Peniche',
-    'coverage.santarem': '<u>Distrito de Santarém</u>: Concelhos de Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Mago',
-    'coverage.setubal': '<u>Distrito de Setúbal</u>: Concelhos de Alcochete, Almada, Barreiro, Setúbal, Sesimbra, Seixal, Palmela, Moita e Montijo',
+    'coverage.leiria': '<u>Distrito de Leiria</u>: Concelhos de Bombarral, Óbidos, Caldas da Rainha e Peniche.',
+    'coverage.santarem': '<u>Distrito de Santarém</u>: Concelhos de Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Magos e Santarém',
+    'coverage.setubal': '<u>Distrito de Setúbal</u>: Concelhos de Alcochete, Almada, Barreiro, Setúbal, Sesimbra, Seixal, Palmela, Moita e Montijo.',
     'coverage.remote': 'Realizamos atos médicos não presenciais em todo o restante território nacional e países da União Europeia.',
     'coverage.map.alt': 'Mapa das áreas abrangidas',
     'coverage.map.caption': 'Áreas Abrangidas pela MEL (imagem ilustrativa)',
@@ -253,7 +259,7 @@
     'footer.address.title': 'Morada',
     'footer.address.line1': 'Rua da Bombarda 66, 6º Esq. Lisboa, Portugal',
     'footer.address.line2': '+351 934 493 722',
-    'footer.address.line3': 'medicinaemlinha@outlook.com',
+    'footer.address.line3': 'medicinaemlinha@outlook.pt',
     'footer.copyright': 'Copyright',
     'footer.rights': 'Todos os direitos reservados',
     'footer.template': 'Este template foi feito por'
@@ -267,19 +273,19 @@
     'cta.book': 'Book Appointment',
     'hero.title': 'Healthcare<br><span>at the distance of your contact</span>',
     'hero.body': 'At <u style="color: darkblue;">MEL</u> (Medicina em Linha), we are at the forefront of differentiated medical services, combining the best of telemedicine with in-home medical visits to offer a comprehensive and convenient healthcare experience for all our patients.',
-    'services.tele.title': 'Teleconsultations',
+    'services.tele.title': 'Telemedicine',
     'services.tele.body': 'Consult healthcare professionals without leaving your home.',
     'services.rx.title': 'Prescriptions',
-    'services.rx.body': 'For medication, treatments or specific exams.',
+    'services.rx.body': 'For renewal of chronic prescriptions, prescription of medical exams, and issuance of certificates.',
     'services.home.title': 'Home Visits',
     'services.home.body': 'Medical care provided in your residence by a healthcare professional.',
     'approach.title': 'Approach',
-    'approach.body': 'At MEL, we believe healthcare should be accessible to everyone, regardless of location or individual circumstances. We offer a wide range of medical services, including teleconsultations and medical counseling, chronic prescription renewals and complementary remote diagnostic methods, for patients from 0 to 100 years old.<br><br>We also provide in-person services, including home visits within a 100km radius of Lisbon, to meet our patients’ immediate healthcare needs.',
+    'approach.body': 'At MEL, we believe healthcare should be accessible to everyone, regardless of location or individual circumstances. We offer a wide range of medical services, including teleconsultations and medical counseling, chronic prescription renewals and complementary remote diagnostic methods, for patients from 0 to 100 years old.<br><br>We also provide in-person services, including home visits within a 100 km radius of Lisbon, to meet our patients’ immediate healthcare needs.',
     'coverage.title': 'Coverage Areas',
     'coverage.intro': 'We provide in-home consultations in 4 districts and more than 30 municipalities:',
     'coverage.lisbon': '<u>Lisbon District</u>: Lisbon, Alenquer, Amadora, Arruda dos Vinhos, Azambuja, Cadaval, Cascais, Loures, Lourinhã, Mafra, Odivelas, Oeiras, Sintra, Sobral de Monte Agraço, Torres Vedras and Vila Franca de Xira.',
-    'coverage.leiria': '<u>Leiria District</u>: Bombarral, Óbidos and Peniche',
-    'coverage.santarem': '<u>Santarém District</u>: Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Magos',
+    'coverage.leiria': '<u>Leiria District</u>: Bombarral, Óbidos, Caldas da Rainha and Peniche',
+    'coverage.santarem': '<u>Santarém District</u>: Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Magos and Santarém',
     'coverage.setubal': '<u>Setúbal District</u>: Alcochete, Almada, Barreiro, Setúbal, Sesimbra, Seixal, Palmela, Moita and Montijo',
     'coverage.remote': 'We provide non-in-person medical acts throughout the rest of the national territory and EU countries.',
     'coverage.map.alt': 'Map of coverage areas',
@@ -314,15 +320,76 @@
     'footer.address.title': 'Address',
     'footer.address.line1': 'Rua da Bombarda 66, 6º Esq. Lisbon, Portugal',
     'footer.address.line2': '+351 934 493 722',
-    'footer.address.line3': 'medicinaemlinha@outlook.com',
+    'footer.address.line3': 'medicinaemlinha@outlook.pt',
     'footer.copyright': 'Copyright',
     'footer.rights': 'All rights reserved',
     'footer.template': 'This template is made by'
   });
 
+  translations.es = Object.assign({}, translations.es, {
+    'nav.home': 'Inicio',
+    'nav.coverage': 'Áreas de cobertura',
+    'nav.approach': 'Enfoque',
+    'nav.about': 'Sobre Nosotros',
+    'cta.book': 'Reservar Consulta',
+    'hero.title': 'Atención médica<br><span>a la distancia de su contacto</span>',
+    'hero.body': 'En <u style="color: darkblue;">MEL</u> (Medicina en Línea), nos posicionamos a la vanguardia en la prestación de<br> servicios médicos diferenciados, combinando lo mejor<br> de la telemedicina con la posibilidad de consultas médicas<br> presenciales a domicilio, para ofrecer una experiencia de salud<br> integral y conveniente para todos nuestros usuarios.',
+    'services.tele.title': 'Teleconsultas',
+    'services.tele.body': 'Aceda a profesionales de la salud sin necesidad de desplazarse.',
+    'services.rx.title': 'Prescripciones/Recetas',
+    'services.rx.body': '“Para la renovación de recetas crónicas, la prescripción de exámenes médicos y la emisión de certificados.',
+    'services.home.title': 'Consultas a Domicilio',
+    'services.home.body': 'Atenciones médicas realizadas en su residencia por un profesional de la salud.',
+    'approach.title': 'Enfoque',
+    'approach.body': 'En MEL, creemos que la salud debe ser accesible para todos, independientemente de la ubicación o circunstancias individuales. Ofrecemos una amplia gama de servicios médicos, incluyendo teleconsultas y asesoramiento médico, renovación de recetas crónicas y métodos complementarios de diagnóstico a distancia, para pacientes de 0 a 100 años.<br><br>Además, proporcionamos servicios presenciales, incluyendo consultas a domicilio en un radio de 100 km<br> de distancia de Lisboa, para atender las necesidades de salud inmediatas de nuestros pacientes.',
+    'coverage.title': 'Áreas de Cobertura',
+    'coverage.intro': 'Realizamos consultas presenciales a domicilio en 4 distritos y más de 30 municipios:',
+    'coverage.lisbon': '<u>Distrito de Lisboa</u>: Municipios de Lisboa, Alenquer, Amadora, Arruda dos Vinhos, Azambuja, Cadaval, Cascais, Loures, Lourinhã, Mafra, Odivelas, Oeiras, Sintra, Sobral de Monte Agraço, Torres Vedras y Vila Franca de Xira.',
+    'coverage.leiria': '<u>Distrito de Leiria</u>: Municipios de Bombarral, Óbidos, Caldas da Rainha y Peniche.',
+    'coverage.santarem': '<u>Distrito de Santarém</u>: Municipios de Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Magos y Santarém.',
+    'coverage.setubal': '<u>Distrito de Setúbal</u>: Municipios de Alcochete, Almada, Barreiro, Setúbal, Sesimbra, Seixal, Palmela, Moita y Montijo.',
+    'coverage.remote': 'Realizamos actos médicos no presenciales en todo el resto del territorio nacional y países de la Unión Europea.',
+    'coverage.map.alt': 'Mapa de las áreas de cobertura',
+    'coverage.map.caption': 'Áreas de cobertura de la MEL (imagen ilustrativa)',
+    'logo.alt': 'Medicina en Línea',
+    'hero.image.alt': 'Doctor Ricardo',
+    'approach.image.alt': 'Consulta médica',
+    'about.image.alt': 'Consulta médica',
+    'about.title': 'Sobre Nosotros',
+    'about.body': 'Nuestra misión es estar cerca y a la distancia de un contacto del paciente, proporcionando cuidados de salud integrales que se adaptan a sus necesidades individuales. Con el lema “A la distancia de su contacto (At the distance of a phone call)”, estamos comprometidos a ser fácilmente accesibles para nuestros pacientes, garantizando que reciban el cuidado médico que necesitan, como, cuando y donde lo necesiten.',
+    'contact.title': 'Agende con nosotros, para poder cuidar de usted!',
+    'contact.subject.home': 'Consulta a Domicilio',
+    'contact.subject.tele': 'Teleconsulta',
+    'contact.subject.other': 'Otro',
+    'contact.message.placeholder': 'Breve descripción del motivo de la consulta y fecha deseada',
+    'contact.name.placeholder': 'Nombre y apellido',
+    'contact.email.placeholder': 'Correo electrónico',
+    'contact.submit': 'Enviar',
+    'contact.image.alt': 'Profesional de la salud al teléfono',
+    'testimonial.1': 'El Dr. Ricardo Pinheiro es un excelente profesional.<br>Muy atento y dedicado. Lo recomiendo y, si es necesario,<br>volveré sin duda a solicitar sus servicios.',
+    'testimonial.2': 'En lo personal y en mi familia, tenemos una enorme gratitud al doctor<br>por la atención y dedicación que nos brindó siempre que fue necesario.<br>Recomiendo sus servicios a todos mis familiares y amigos.',
+    'testimonial.3': 'El Dr. Ricardo es nuestro médico de familia y siempre es muy profesional.<br>Siempre con las mejores intenciones y con respuesta rápida.<br>Me siento segura y confiada cada vez que contacto con MEL.<br>Recomiendo mucho al Dr. Ricardo y a su equipo.',
+    'testimonial.4': 'El Dr. Ricardo y sus colegas ayudan de manera significativa y rápida<br>con cualquier cuestión médica que tengas para toda la familia.<br>El Dr. Ricardo es muy hábil y minucioso, siempre<br>intenta encontrar la causa del problema y la mejor solución;<br>se siente muy seguro tenerlo a nuestra disposición.',
+    'testimonial.5': 'Pasé para agradecer al Dr. Ricardo por toda la disponibilidad<br>y amabilidad con los pacientes.<br>Siempre muy servicial, atento y profesional.<br>Lo recomiendo, estoy muy satisfecho y ya es mi médico<br>de familia en quien confío para todo 💪.',
+    'testimonial.6': 'Excelente profesional, respuesta rápida, muy disponible. ¡Lo recomiendo!',
+    'testimonial.7': 'El Dr. Ricardo Pinheiro es de cinco estrellas, muy competente, servicial<br>y siempre dispuesto a atender nuestras necesidades.',
+    'testimonial.8': 'El Dr. Ricardo Pinheiro es un profesional de gran excelencia,<br>con una empatía inigualable, muy paciente y profesional;<br>ya no me imagino mi vida sin sus cuidados,<br>gracias, Dr. Ricardo Pinheiro.',
+    'testimonial.9': 'Ricardo es un médico muy profesional. Una de las mejores atenciones que he recibido.<br>Si buscas ayuda, él es el indicado, respuesta rápida y muy útil.<br>Me ha estado ayudando durante mi preparación para el embarazo. También tuve<br>herpes zóster recientemente; su diagnóstico fue rápido y con su ayuda y la medicación adecuada<br>mejoré en pocos días. ¡Totalmente recomendable!',
+    'footer.links.title': 'Enlaces Útiles',
+    'footer.links.about': 'Sobre Nosotros',
+    'footer.links.contact': 'Contáctenos',
+    'footer.address.title': 'Dirección',
+    'footer.address.line1': 'Rua da Bombarda 66, 6º Esq. Lisboa, Portugal',
+    'footer.address.line2': '+351 934 493 722',
+    'footer.address.line3': 'medicinaemlinha@outlook.pt',
+    'footer.copyright': 'Copyright',
+    'footer.rights': 'Todos los derechos reservados',
+    'footer.template': 'Este template fue hecho por'
+  });
+
   function applyTranslations(lang) {
     var dict = translations[lang] || translations.pt;
-    document.documentElement.lang = lang === 'en' ? 'en' : 'pt';
+    document.documentElement.lang = lang === 'en' ? 'en' : (lang === 'es' ? 'es' : 'pt');
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (dict[key]) {
@@ -347,27 +414,35 @@
         el.setAttribute('alt', dict[key]);
       }
     });
-  }
-
-  var stored = localStorage.getItem('mel_lang') || 'pt';
-  applyTranslations(stored);
-  var toggles = document.querySelectorAll('.lang-toggle');
-  function renderToggles(lang) {
-    var html = lang === 'pt'
-      ? '<span class="lang-flag" aria-hidden="true">🇬🇧</span><span class="lang-text">EN</span>'
-      : '<span class="lang-flag" aria-hidden="true">🇵🇹</span><span class="lang-text">PT</span>';
-    toggles.forEach(function (btn) {
-      btn.innerHTML = html;
+    document.querySelectorAll('[data-i18n-value]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-value');
+      if (dict[key]) {
+        el.value = dict[key];
+      }
     });
   }
 
-  renderToggles(stored);
-  toggles.forEach(function (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = (localStorage.getItem('mel_lang') || 'pt') === 'pt' ? 'en' : 'pt';
+  var stored = localStorage.getItem('mel_lang') || 'pt';
+  if (['pt', 'en', 'es'].indexOf(stored) < 0) {
+    stored = 'pt';
+  }
+  applyTranslations(stored);
+  var selects = document.querySelectorAll('.lang-select');
+  function syncSelects(lang) {
+    selects.forEach(function (select) {
+      select.value = lang;
+    });
+  }
+  syncSelects(stored);
+  selects.forEach(function (select) {
+    select.addEventListener('change', function () {
+      var next = select.value;
+      if (['pt', 'en', 'es'].indexOf(next) < 0) {
+        next = 'pt';
+      }
       localStorage.setItem('mel_lang', next);
       applyTranslations(next);
-      renderToggles(next);
+      syncSelects(next);
     });
   });
 })();

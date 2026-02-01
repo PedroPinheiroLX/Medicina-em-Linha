@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Medicina em Linha</title>
-    <meta name="description" content="Teleconsultas e consultas ao domicílio em Lisboa e distritos próximos. Medicina em Linha: cuidados de saúde acessíveis e personalizados.">
+    <meta name="description"
+        content="Teleconsultas e consultas ao domicílio em Lisboa e distritos próximos. Medicina em Linha: cuidados de saúde acessíveis e personalizados.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -25,24 +26,26 @@
                     <div class="row">
                         <div class="col-xl-2 col-md-6 ">
                             <div class="social_media_links">
+                                <select class="lang-select lang-select--top" aria-label="Selecionar idioma">
+                                    <option value="pt">🇵🇹 PT</option>
+                                    <option value="en">🇬🇧 EN</option>
+                                    <option value="es">🇪🇸 ES</option>
+                                </select>
                                 <a href="https://www.facebook.com/profile.php?id=61558736343365">
                                     <i class="fa fa-facebook"></i>
                                 </a>
                                 <a href="https://www.instagram.com/mel_medicinaemlinha/">
                                     <i class="fa fa-instagram"></i>
                                 </a>
-                                <button class="lang-toggle lang-toggle--top" type="button"
-                                    aria-label="Mudar idioma">
-                                    <span class="lang-flag" aria-hidden="true">🇵🇹</span>
-                                    <span class="lang-text">PT</span>
-                                </button>
+                                <a class="book_btn book_btn--top" href="#contact_section" data-i18n="cta.book">Agendar
+                                    Consulta</a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-md-6">
                             <div class="short_contact_list">
                                 <ul>
                                     <li><i class="fa fa-envelope"></i> medicinaemlinha@outlook.pt</li>
-                                    <li><i class="fa fa-phone"></i> 218 144 059 | 934 493 722</li>
+                                    <li><i class="fa fa-phone"></i> 934 493 722 | 218 144 059</li>
                                 </ul>
                             </div>
                         </div>
@@ -77,10 +80,11 @@
                                     <a href="#contact_section" data-i18n="cta.book">Agendar Consulta</a>
                                 </div>
                                 <div class="language_toggle">
-                                    <button class="lang-toggle" type="button" aria-label="Mudar idioma">
-                                        <span class="lang-flag" aria-hidden="true">🇵🇹</span>
-                                        <span class="lang-text">PT</span>
-                                    </button>
+                                    <select class="lang-select lang-select--header" aria-label="Selecionar idioma">
+                                        <option value="pt">🇵🇹 PT</option>
+                                        <option value="en">🇬🇧 EN</option>
+                                        <option value="es">🇪🇸 ES</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -106,8 +110,7 @@
             </div>
             <!-- Image Section (1/3 width) -->
             <div class="image_section">
-                <img id="main_doctor" src="img/doctor_ricardo.png" alt="Doutor Ricardo"
-                    data-i18n-alt="hero.image.alt">
+                <img id="main_doctor" src="img/doctor_ricardo.png" alt="Doutor Ricardo" data-i18n-alt="hero.image.alt">
             </div>
         </div>
     </div>
@@ -128,8 +131,8 @@
                     <img src="img/prescricao.svg" width="30%" height="30%">
                 </div>
                 <h3 data-i18n="services.rx.title">Prescrições/Receitas</h3>
-                <p data-i18n="services.rx.body">Para administração de medicamentos, tratamentos ou exames específicos.
-                </p>
+                <p data-i18n="services.rx.body">Para renovação de receituário crónico, prescrição de exames médicos e
+                    emissão de declarações.</p>
             </div>
             <div class="single_service">
                 <div class="icon">
@@ -155,7 +158,7 @@
                     circunstâncias individuais. Oferecemos uma ampla gama de serviços médicos, incluindo teleconsultas
                     e aconselhamento médico, prescrição de receituário crónico e métodos complementares de diagnóstico à
                     distância, para utentes dos 0 aos 100 anos.<br><br>Além disso, fornecemos serviços presenciais,
-                    incluindo consultas ao domicílio num raio de 100km<br>de distância de Lisboa, para atender às
+                    incluindo consultas ao domicílio num raio de 100 km<br> de distância de Lisboa, para atender às
                     necessidades de saúde imediatas dos nossos pacientes.
                 </p>
             </div>
@@ -175,14 +178,15 @@
                     Vedras e Vila Franca de Xira.
                 </p>
                 <p data-i18n-html="coverage.leiria">
-                    <u>Distrito de Leiria</u>: Concelhos de Bombarral, Óbidos e Peniche
+                    <u>Distrito de Leiria</u>: Concelhos de Bombarral, Óbidos, Caldas da Rainha e Peniche.
                 </p>
                 <p data-i18n-html="coverage.santarem">
-                    <u>Distrito de Santarém</u>: Concelhos de Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de Mago
+                    <u>Distrito de Santarém</u>: Concelhos de Benavente, Cartaxo, Coruche, Rio Maior, Salvaterra de
+                    Magos.
                 </p>
                 <p data-i18n-html="coverage.setubal">
                     <u>Distrito de Setúbal</u>: Concelhos de Alcochete, Almada, Barreiro, Setúbal, Sesimbra, Seixal,
-                    Palmela, Moita e Montijo
+                    Palmela, Moita e Montijo.
                 </p>
                 <p data-i18n="coverage.remote">
                     Realizamos atos médicos não presenciais em todo o restante território nacional e países da União
@@ -192,7 +196,8 @@
             <div class="image_section">
                 <figure>
                     <img src="img/includedAreas.png" alt="Mapa das áreas abrangidas" data-i18n-alt="coverage.map.alt">
-                    <figcaption data-i18n="coverage.map.caption">Áreas Abrangidas pela MEL (imagem ilustrativa)</figcaption>
+                    <figcaption data-i18n="coverage.map.caption">Áreas Abrangidas pela MEL (imagem ilustrativa)
+                    </figcaption>
                 </figure>
             </div>
         </div>
@@ -238,11 +243,14 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <select class="form-control" name="Assunto" id="subject" required>
-                                        <option value="Consulta ao Domicílio" data-i18n="contact.subject.home">
+                                        <option value="Consulta ao Domicílio" data-i18n="contact.subject.home"
+                                            data-i18n-value="contact.subject.home">
                                             Consulta ao Domicílio</option>
-                                        <option value="Teleconsulta" data-i18n="contact.subject.tele">Teleconsulta
+                                        <option value="Teleconsulta" data-i18n="contact.subject.tele"
+                                            data-i18n-value="contact.subject.tele">Teleconsulta
                                         </option>
-                                        <option value="Outro" data-i18n="contact.subject.other">Outro</option>
+                                        <option value="Outro" data-i18n="contact.subject.other"
+                                            data-i18n-value="contact.subject.other">Outro</option>
                                     </select>
                                 </div>
                             </div>
@@ -422,11 +430,12 @@
                                 Morada
                             </h3>
                             <p>
-                                <span data-i18n="footer.address.line1">Rua da Bombarda 66, 6º Esq. Lisboa, Portugal</span>
+                                <span data-i18n="footer.address.line1">Rua da Bombarda 66, 6º Esq. Lisboa,
+                                    Portugal</span>
                                 <br>
                                 <span data-i18n="footer.address.line2">+351 934 493 722</span>
                                 <br>
-                                <span data-i18n="footer.address.line3">medicinaemlinha@outlook.com</span>
+                                <span data-i18n="footer.address.line3">medicinaemlinha@outlook.pt</span>
                             </p>
                         </div>
                     </div>
@@ -450,6 +459,7 @@
             </div>
         </div>
     </footer>
+    <!-- footer end -->
 
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>

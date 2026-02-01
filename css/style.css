@@ -852,6 +852,10 @@ h3 {
 
 .header-area .header-top_area .social_media_links {
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 767px) {
@@ -859,6 +863,7 @@ h3 {
 
   .header-area .header-top_area .social_media_links {
     text-align: center;
+    justify-content: center;
   }
 }
 
@@ -866,7 +871,7 @@ h3 {
 .header-area .header-top_area .social_media_links a {
   font-size: 20px;
   color: #C7C7C7;
-  margin-right: 12px;
+  margin-right: 0;
 }
 
 
@@ -934,6 +939,7 @@ h3 {
 @media (max-width: 767px) {
   .introduction_area .custom_container .text_section h1 {
     font-size: 26px;
+    line-height: 1.4em;
   }
 
   .introduction_area .custom_container .text_section p {
@@ -1912,24 +1918,19 @@ h6 {
   align-items: center;
 }
 
-.language_toggle button,
-.lang-toggle {
+.lang-select {
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
   color: #2c3e50;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.5px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  line-height: 1.2;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-.language_toggle button:hover,
-.lang-toggle:hover {
+.lang-select:focus {
+  outline: none;
   border-color: rgba(0, 0, 0, 0.18);
 }
 
@@ -1939,18 +1940,30 @@ h6 {
   }
 }
 
-.language_toggle .lang-flag,
-.lang-toggle .lang-flag {
-  font-size: 14px;
+.lang-select--top {
+  margin-right: 6px;
+}
+
+.header-area .header-top_area .social_media_links .book_btn--top {
+  background: #009DFF;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid transparent;
+  color: #fff;
+  border-radius: 4px;
   line-height: 1;
 }
 
-.lang-toggle--top {
-  margin-left: 10px;
+.header-area .header-top_area .social_media_links .book_btn--top:hover {
+  background: #fff;
+  color: #009DFF;
+  border: 1px solid #009DFF;
 }
 
 @media (min-width: 992px) {
-  .lang-toggle--top {
+  .lang-select--top,
+  .book_btn--top {
     display: none;
   }
 }
