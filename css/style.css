@@ -746,7 +746,7 @@ h3 {
   color: #727272;
   font-size: 13px;
   font-weight: 500;
-  text-transform: capitalize;
+  text-transform: none;
   font-family: "Poppins", sans-serif;
   position: relative;
   padding: 0;

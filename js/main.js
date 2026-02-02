@@ -328,7 +328,7 @@
 
   translations.es = Object.assign({}, translations.es, {
     'nav.home': 'Inicio',
-    'nav.coverage': 'Áreas de cobertura',
+    'nav.coverage': 'Áreas de Cobertura',
     'nav.approach': 'Enfoque',
     'nav.about': 'Sobre Nosotros',
     'cta.book': 'Reservar Consulta',
@@ -337,7 +337,7 @@
     'services.tele.title': 'Teleconsultas',
     'services.tele.body': 'Aceda a profesionales de la salud sin necesidad de desplazarse.',
     'services.rx.title': 'Prescripciones/Recetas',
-    'services.rx.body': '“Para la renovación de recetas crónicas, la prescripción de exámenes médicos y la emisión de certificados.',
+    'services.rx.body': 'Para la renovación de recetas crónicas, la prescripción de exámenes médicos y la emisión de certificados.',
     'services.home.title': 'Consultas a Domicilio',
     'services.home.body': 'Atenciones médicas realizadas en su residencia por un profesional de la salud.',
     'approach.title': 'Enfoque',
