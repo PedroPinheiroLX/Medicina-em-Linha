@@ -451,7 +451,12 @@
     stored = 'pt';
   }
   localStorage.setItem('mel_lang', stored);
-  applyTranslations(stored);
+  var useRuntimeTranslations = !langFromPath;
+  if (useRuntimeTranslations) {
+    applyTranslations(stored);
+  } else {
+    document.documentElement.lang = stored === 'en' ? 'en' : (stored === 'es' ? 'es' : 'pt');
+  }
   document.querySelectorAll('[data-home-link]').forEach(function (link) {
     link.setAttribute('href', getLangPath(stored));
   });
@@ -469,15 +474,19 @@
         next = 'pt';
       }
       localStorage.setItem('mel_lang', next);
-      applyTranslations(next);
+      var targetPath = getLangPath(next);
+      var currentPath = window.location.pathname;
+      var samePath = currentPath === targetPath || currentPath === targetPath.slice(0, -1);
+      if (!samePath) {
+        window.location.href = targetPath + window.location.hash;
+        return;
+      }
       syncSelects(next);
       document.querySelectorAll('[data-home-link]').forEach(function (link) {
         link.setAttribute('href', getLangPath(next));
       });
-      var targetPath = getLangPath(next);
-      var currentPath = window.location.pathname;
-      if (currentPath !== targetPath && currentPath !== targetPath.slice(0, -1)) {
-        window.location.href = targetPath + window.location.hash;
+      if (useRuntimeTranslations) {
+        applyTranslations(next);
       }
     });
   });
