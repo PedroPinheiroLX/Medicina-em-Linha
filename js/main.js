@@ -206,7 +206,7 @@
 
   translations.pt = Object.assign({}, translations.pt, {
     'nav.home': 'Início',
-    'nav.coverage': 'Áreas abrangidas',
+    'nav.coverage': 'Áreas Abrangidas',
     'nav.approach': 'Abordagem',
     'nav.about': 'Sobre Nós',
     'cta.book': 'Agendar Consulta',
@@ -267,12 +267,12 @@
 
   translations.en = Object.assign({}, translations.en, {
     'nav.home': 'Home',
-    'nav.coverage': 'Coverage areas',
+    'nav.coverage': 'Coverage Areas',
     'nav.approach': 'Approach',
     'nav.about': 'About Us',
     'cta.book': 'Book Appointment',
     'hero.title': 'Healthcare<br><span>at the distance of your contact</span>',
-    'hero.body': 'At <u style="color: darkblue;">MEL</u> (Medicina em Linha), we are at the forefront of differentiated medical services, combining the best of telemedicine with in-home medical visits to offer a comprehensive and convenient healthcare experience for all our patients.',
+    'hero.body': 'At <u style="color: darkblue;">MEL</u> (Medicina em Linha), we are at the forefront of differentiated <br> medical services, combining the best of telemedicine with in-home <br> medical visits to offer a comprehensive and convenient <br> healthcare experience for all our patients.',
     'services.tele.title': 'Telemedicine',
     'services.tele.body': 'Consult healthcare professionals without leaving your home.',
     'services.rx.title': 'Prescriptions',
@@ -332,8 +332,8 @@
     'nav.approach': 'Enfoque',
     'nav.about': 'Sobre Nosotros',
     'cta.book': 'Reservar Consulta',
-    'hero.title': 'Atención médica<br><span>a la distancia de su contacto</span>',
-    'hero.body': 'En <u style="color: darkblue;">MEL</u> (Medicina en Línea), nos posicionamos a la vanguardia en la prestación de<br> servicios médicos diferenciados, combinando lo mejor<br> de la telemedicina con la posibilidad de consultas médicas<br> presenciales a domicilio, para ofrecer una experiencia de salud<br> integral y conveniente para todos nuestros usuarios.',
+    'hero.title': 'Atención médica<br><span>a distancia de su contacto</span>',
+    'hero.body': 'En <u style="color: darkblue;">MEL</u> (Medicina en Línea), nos posicionamos a la vanguardia <br> en la prestación de servicios médicos diferenciados, combinando <br> lo mejor de la telemedicina con la posibilidad de consultas médicas <br> presenciales a domicilio, para ofrecer una experiencia de salud <br> integral y conveniente para todos nuestros usuarios.',
     'services.tele.title': 'Teleconsultas',
     'services.tele.body': 'Aceda a profesionales de la salud sin necesidad de desplazarse.',
     'services.rx.title': 'Prescripciones/Recetas',
@@ -422,11 +422,39 @@
     });
   }
 
-  var stored = localStorage.getItem('mel_lang') || 'pt';
+  function getLangFromPath() {
+    var path = window.location.pathname.toLowerCase();
+    if (path === '/en' || path.indexOf('/en/') === 0) {
+      return 'en';
+    }
+    if (path === '/es' || path.indexOf('/es/') === 0) {
+      return 'es';
+    }
+    return null;
+  }
+
+  function getLangPath(lang) {
+    if (lang === 'en') {
+      return '/en/';
+    }
+    if (lang === 'es') {
+      return '/es/';
+    }
+    return '/';
+  }
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var langFromUrl = urlParams.get('lang');
+  var langFromPath = getLangFromPath();
+  var stored = langFromPath || langFromUrl || localStorage.getItem('mel_lang') || 'pt';
   if (['pt', 'en', 'es'].indexOf(stored) < 0) {
     stored = 'pt';
   }
+  localStorage.setItem('mel_lang', stored);
   applyTranslations(stored);
+  document.querySelectorAll('[data-home-link]').forEach(function (link) {
+    link.setAttribute('href', getLangPath(stored));
+  });
   var selects = document.querySelectorAll('.lang-select');
   function syncSelects(lang) {
     selects.forEach(function (select) {
@@ -443,6 +471,14 @@
       localStorage.setItem('mel_lang', next);
       applyTranslations(next);
       syncSelects(next);
+      document.querySelectorAll('[data-home-link]').forEach(function (link) {
+        link.setAttribute('href', getLangPath(next));
+      });
+      var targetPath = getLangPath(next);
+      var currentPath = window.location.pathname;
+      if (currentPath !== targetPath && currentPath !== targetPath.slice(0, -1)) {
+        window.location.href = targetPath + window.location.hash;
+      }
     });
   });
 })();
