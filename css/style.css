@@ -865,6 +865,10 @@ h3 {
     text-align: center;
     justify-content: center;
   }
+
+  .header-area .header-top_area .social_media_links a {
+    font-size: 22px;
+  }
 }
 
 
@@ -874,6 +878,35 @@ h3 {
   margin-right: 0;
 }
 
+.header-area .header-top_area .social_media_links .social_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.header-area .header-top_area .social_media_links .social_label {
+  display: none;
+  font-size: 14px;
+  color: inherit;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .header-area .header-top_area .social_media_links .social_label {
+    display: inline;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-area .header-top_area .social_media_links {
+    flex-wrap: nowrap;
+  }
+
+  .header-area .header-top_area .social_media_links .social_link:first-of-type {
+    margin-right: 10px;
+  }
+}
 
 .header-area .header-top_area .social_media_links a:hover {
   color: #5DB2FF;
@@ -905,6 +938,14 @@ h3 {
 
 .header-area .header-top_area .short_contact_list ul {
   margin: 0;
+}
+
+.header-area .header-top_area .short_contact_list a {
+  color: inherit;
+}
+
+.header-area .header-top_area .short_contact_list a:hover {
+  text-decoration: underline;
 }
 
 
@@ -1599,7 +1640,7 @@ h3 {
 .form-contact .form-control {
   border: 1px solid #e5e6e9;
   border-radius: 0px;
-  height: 48px;
+  height: 39px;
   padding-left: 18px;
   font-size: 13px;
   /*background: transparent;*/
@@ -1614,6 +1655,20 @@ h3 {
   font-weight: 300;
   color: #999999;
 }
+
+/**
+
+.form-contact .phone-code,
+.form-contact .phone-input {
+  height: 39px;
+}
+
+.form-contact select.phone-code {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+**/
+
 
 .form-contact textarea {
   border-radius: 0px;
@@ -1955,6 +2010,13 @@ h6 {
   line-height: 1;
 }
 
+@media (max-width: 767px) {
+  .header-area .header-top_area .social_media_links .book_btn--top {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
 .header-area .header-top_area .social_media_links .book_btn--top:hover {
   background: #fff;
   color: #009DFF;
@@ -1978,6 +2040,39 @@ h6 {
 
 .header-area .main-header-area .Appointment .book_btn a {
   white-space: nowrap;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  color: #fff;
+  background: #1ebe5d;
+}
+
+@media (max-width: 767px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 16px;
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {

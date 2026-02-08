@@ -90,11 +90,13 @@
                                     <option value="en">🇬🇧 EN</option>
                                     <option value="es">🇪🇸 ES</option>
                                 </select>
-                                <a href="https://www.facebook.com/profile.php?id=61558736343365">
+                                <a class="social_link" href="https://www.facebook.com/profile.php?id=61558736343365">
                                     <i class="fa fa-facebook"></i>
+                                    <span class="social_label">Facebook</span>
                                 </a>
-                                <a href="https://www.instagram.com/mel_medicinaemlinha/">
+                                <a class="social_link" href="https://www.instagram.com/mel_medicinaemlinha/">
                                     <i class="fa fa-instagram"></i>
+                                    <span class="social_label">Instagram</span>
                                 </a>
                                 <a class="book_btn book_btn--top" href="#contact_section" data-i18n="cta.book">Reservar Consulta</a>
                             </div>
@@ -102,8 +104,11 @@
                         <div class="col-xl-10 col-md-6">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><i class="fa fa-envelope"></i> medicinaemlinha@outlook.pt</li>
-                                    <li><i class="fa fa-phone"></i> 934 493 722 | 218 144 059</li>
+                                    <li><a href="mailto:medicinaemlinha@outlook.pt?subject=Reservar%20Consulta"
+                                            aria-label="Enviar correo a medicinaemlinha@outlook.pt"><i
+                                                class="fa fa-envelope"></i></a> medicinaemlinha@outlook.pt</li>
+                                    <li><a href="tel:+351934493722" aria-label="Llamar al 934 493 722"><i
+                                                class="fa fa-phone"></i></a> 934 493 722 | 218 144 059</li>
                                 </ul>
                             </div>
                         </div>
@@ -298,6 +303,29 @@
                                         placeholder="Correo electrónico" data-i18n-placeholder="contact.email.placeholder">
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <select class="form-control phone-code" name="Indicativo" id="phone_country">
+                                        <option value="+351">🇵🇹 PT (+351)</option>
+                                        <option value="+34" selected>🇪🇸 ES (+34)</option>
+                                        <option value="+44">🇬🇧 UK (+44)</option>
+                                        <option value="+33">🇫🇷 FR (+33)</option>
+                                        <option value="+49">🇩🇪 DE (+49)</option>
+                                        <option value="+55">🇧🇷 BR (+55)</option>
+                                        <option value="+1">🇺🇸 US (+1)</option>
+                                        <option value="+39">🇮🇹 IT (+39)</option>
+                                        <option value="+41">🇨🇭 CH (+41)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid phone-input" name="Telemovel" id="phone" type="tel"
+                                        placeholder="Teléfono móvil (opcional)"
+                                        data-i18n-placeholder="contact.phone.placeholder" autocomplete="tel"
+                                        inputmode="numeric" pattern="[0-9]{9,13}" maxlength="13">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group mt-3">
                             <button type="submit" class="button button-contactForm boxed-btn"
@@ -452,6 +480,11 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/scrollIt.js"></script>
+    <a class="whatsapp-float"
+        href="https://wa.me/351934493722?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20consulta."
+        target="_blank" rel="noopener" aria-label="WhatsApp">
+        <i class="fa fa-whatsapp"></i>
+    </a>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 </body>

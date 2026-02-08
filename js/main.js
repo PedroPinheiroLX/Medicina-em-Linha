@@ -137,6 +137,17 @@
   }
 
   var submitBtn = form.querySelector('button[type="submit"]');
+  var phoneInput = form.querySelector('#phone');
+  var phoneCountry = form.querySelector('#phone_country');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      var digits = this.value.replace(/\D+/g, '');
+      if (digits.length > 13) {
+        digits = digits.slice(0, 13);
+      }
+      this.value = digits;
+    });
+  }
   var startedAt = Date.now();
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -163,6 +174,11 @@
   form.addEventListener('submit', function (event) {
     event.preventDefault();
 
+    if (form.checkValidity && !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
     var botcheck = form.querySelector('input[name="botcheck"]');
     if (botcheck && botcheck.checked) {
       return;
@@ -176,7 +192,26 @@
     setNotice('');
     updateRequestDate();
 
+    if (phoneInput) {
+      var cleaned = phoneInput.value.replace(/\D+/g, '');
+      if (cleaned.length > 13) {
+        cleaned = cleaned.slice(0, 13);
+      }
+      phoneInput.value = cleaned;
+    }
+
     var formData = new FormData(form);
+    if (phoneInput) {
+      var phoneDigits = phoneInput.value;
+      if (phoneDigits) {
+        var countryCode = phoneCountry ? phoneCountry.value : '';
+        var combined = countryCode ? (countryCode + ' ' + phoneDigits) : phoneDigits;
+        formData.set('Telemovel', combined);
+      } else {
+        formData.delete('Telemovel');
+      }
+    }
+    formData.delete('Indicativo');
     var redirectInput = form.querySelector('input[name="redirect"]');
     var redirectUrl = redirectInput ? redirectInput.value : 'emailReceivedTemplate.html';
     formData.delete('redirect');
@@ -242,6 +277,7 @@
     'contact.message.placeholder': 'Breve descrição do motivo da consulta e data pretendida',
     'contact.name.placeholder': 'Primeiro e último nome',
     'contact.email.placeholder': 'Email',
+    'contact.phone.placeholder': 'Telemóvel (opcional)',
     'contact.submit': 'Enviar',
     'contact.image.alt': 'Profissional de saúde ao telefone',
     'testimonial.1': 'O Dr. Ricardo Pinheiro é um excelente profissional.<br>Muito atencioso e dedicado. Recomendo e caso necessário<br>voltarei, sem dúvida, a requisitar os seus serviços.',
@@ -303,6 +339,7 @@
     'contact.message.placeholder': 'Brief description of the reason for the consultation and desired date',
     'contact.name.placeholder': 'First and last name',
     'contact.email.placeholder': 'Email address',
+    'contact.phone.placeholder': 'Mobile phone (optional)',
     'contact.submit': 'Send',
     'contact.image.alt': 'Healthcare professional on the phone',
     'testimonial.1': 'Dr. Ricardo Pinheiro is an excellent professional.<br>Very attentive and dedicated. I recommend him and if needed<br>I will definitely request his services again.',
@@ -364,6 +401,7 @@
     'contact.message.placeholder': 'Breve descripción del motivo de la consulta y fecha deseada',
     'contact.name.placeholder': 'Nombre y apellido',
     'contact.email.placeholder': 'Correo electrónico',
+    'contact.phone.placeholder': 'Teléfono móvil (opcional)',
     'contact.submit': 'Enviar',
     'contact.image.alt': 'Profesional de la salud al teléfono',
     'testimonial.1': 'El Dr. Ricardo Pinheiro es un excelente profesional.<br>Muy atento y dedicado. Lo recomiendo y, si es necesario,<br>volveré sin duda a solicitar sus servicios.',
