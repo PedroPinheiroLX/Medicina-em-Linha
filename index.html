@@ -353,6 +353,7 @@
                                         <option value="+1">🇺🇸 US (+1)</option>
                                         <option value="+39">🇮🇹 IT (+39)</option>
                                         <option value="+41">🇨🇭 CH (+41)</option>
+                                        <option value="other" data-i18n="contact.phone.other">Outro (+código)</option>
                                     </select>
                                 </div>
                             </div>
@@ -360,6 +361,8 @@
                                 <div class="form-group">
                                     <input class="form-control valid phone-input" name="Telemovel" id="phone" type="tel"
                                         placeholder="Telemóvel (opcional)"
+                                        data-placeholder-default="Telemóvel (opcional)"
+                                        data-placeholder-other="Com indicativo, ex: +351912345678"
                                         data-i18n-placeholder="contact.phone.placeholder" autocomplete="tel"
                                         inputmode="numeric" pattern="[0-9]{9,13}" maxlength="13">
                                 </div>

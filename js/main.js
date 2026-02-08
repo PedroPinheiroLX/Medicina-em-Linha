@@ -139,15 +139,47 @@
   var submitBtn = form.querySelector('button[type="submit"]');
   var phoneInput = form.querySelector('#phone');
   var phoneCountry = form.querySelector('#phone_country');
+  function isOtherCountry() {
+    return phoneCountry && phoneCountry.value === 'other';
+  }
+
+  function sanitizePhone(value, allowPlus, maxDigits) {
+    var trimmed = (value || '').replace(/\s+/g, '');
+    var hasPlus = allowPlus && trimmed.charAt(0) === '+';
+    var digits = trimmed.replace(/\D+/g, '');
+    if (digits.length > maxDigits) {
+      digits = digits.slice(0, maxDigits);
+    }
+    return hasPlus ? ('+' + digits) : digits;
+  }
+
+  function applyPhoneMode() {
+    if (!phoneInput) {
+      return;
+    }
+    var allowPlus = isOtherCountry();
+    var maxDigits = allowPlus ? 15 : 13;
+    phoneInput.setAttribute('maxlength', allowPlus ? '16' : '13');
+    phoneInput.setAttribute('pattern', allowPlus ? '\\+?[0-9]{9,15}' : '[0-9]{9,13}');
+    phoneInput.setAttribute('inputmode', allowPlus ? 'tel' : 'numeric');
+    phoneInput.setAttribute('required', allowPlus ? 'required' : '');
+    var placeholder = phoneInput.getAttribute(allowPlus ? 'data-placeholder-other' : 'data-placeholder-default');
+    if (placeholder) {
+      phoneInput.setAttribute('placeholder', placeholder);
+    }
+    phoneInput.value = sanitizePhone(phoneInput.value, allowPlus, maxDigits);
+  }
   if (phoneInput) {
     phoneInput.addEventListener('input', function () {
-      var digits = this.value.replace(/\D+/g, '');
-      if (digits.length > 13) {
-        digits = digits.slice(0, 13);
-      }
-      this.value = digits;
+      var allowPlus = isOtherCountry();
+      var maxDigits = allowPlus ? 15 : 13;
+      this.value = sanitizePhone(this.value, allowPlus, maxDigits);
     });
   }
+  if (phoneCountry) {
+    phoneCountry.addEventListener('change', applyPhoneMode);
+  }
+  applyPhoneMode();
   var startedAt = Date.now();
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -193,19 +225,20 @@
     updateRequestDate();
 
     if (phoneInput) {
-      var cleaned = phoneInput.value.replace(/\D+/g, '');
-      if (cleaned.length > 13) {
-        cleaned = cleaned.slice(0, 13);
-      }
-      phoneInput.value = cleaned;
+      var allowPlus = isOtherCountry();
+      var maxDigits = allowPlus ? 15 : 13;
+      phoneInput.value = sanitizePhone(phoneInput.value, allowPlus, maxDigits);
     }
 
     var formData = new FormData(form);
     if (phoneInput) {
-      var phoneDigits = phoneInput.value;
+      var phoneDigits = phoneInput.value.replace(/\D+/g, '');
       if (phoneDigits) {
-        var countryCode = phoneCountry ? phoneCountry.value : '';
-        var combined = countryCode ? (countryCode + ' ' + phoneDigits) : phoneDigits;
+        var combined = phoneInput.value;
+        if (!isOtherCountry()) {
+          var countryCode = phoneCountry ? phoneCountry.value : '';
+          combined = countryCode ? (countryCode + ' ' + phoneDigits) : phoneDigits;
+        }
         formData.set('Telemovel', combined);
       } else {
         formData.delete('Telemovel');
@@ -278,6 +311,7 @@
     'contact.name.placeholder': 'Primeiro e último nome',
     'contact.email.placeholder': 'Email',
     'contact.phone.placeholder': 'Telemóvel (opcional)',
+    'contact.phone.other': 'Outro (+código)',
     'contact.submit': 'Enviar',
     'contact.image.alt': 'Profissional de saúde ao telefone',
     'testimonial.1': 'O Dr. Ricardo Pinheiro é um excelente profissional.<br>Muito atencioso e dedicado. Recomendo e caso necessário<br>voltarei, sem dúvida, a requisitar os seus serviços.',
@@ -340,6 +374,7 @@
     'contact.name.placeholder': 'First and last name',
     'contact.email.placeholder': 'Email address',
     'contact.phone.placeholder': 'Mobile phone (optional)',
+    'contact.phone.other': 'Other (+code)',
     'contact.submit': 'Send',
     'contact.image.alt': 'Healthcare professional on the phone',
     'testimonial.1': 'Dr. Ricardo Pinheiro is an excellent professional.<br>Very attentive and dedicated. I recommend him and if needed<br>I will definitely request his services again.',
@@ -402,6 +437,7 @@
     'contact.name.placeholder': 'Nombre y apellido',
     'contact.email.placeholder': 'Correo electrónico',
     'contact.phone.placeholder': 'Teléfono móvil (opcional)',
+    'contact.phone.other': 'Otro (+código)',
     'contact.submit': 'Enviar',
     'contact.image.alt': 'Profesional de la salud al teléfono',
     'testimonial.1': 'El Dr. Ricardo Pinheiro es un excelente profesional.<br>Muy atento y dedicado. Lo recomiendo y, si es necesario,<br>volveré sin duda a solicitar sus servicios.',
