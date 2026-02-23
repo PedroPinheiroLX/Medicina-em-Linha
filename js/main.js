@@ -277,6 +277,7 @@
     'nav.coverage': 'Áreas Abrangidas',
     'nav.approach': 'Abordagem',
     'nav.about': 'Sobre Nós',
+    'header.ers': 'Registo ERS: 41619',
     'cta.book': 'Agendar Consulta',
     'hero.title': 'Cuidados de Saúde<br><span>à distância do seu contacto</span>',
     'hero.body': 'Na <u style="color: darkblue;">MEL</u> (Medicina em Linha), posicionamo-nos na vanguarda da<br> prestação de serviços médicos diferenciados, combinando o melhor<br> da telemedicina com a possibilidade de consultas médicas<br> presenciais ao domicílio, para oferecer uma experiência de saúde<br> abrangente e conveniente para todos os nossos utentes.',
@@ -332,7 +333,8 @@
     'footer.address.line3': 'medicinaemlinha@outlook.pt',
     'footer.copyright': 'Copyright',
     'footer.rights': 'Todos os direitos reservados',
-    'footer.template': 'Este template foi feito por'
+    'footer.template': 'Este template foi feito por',
+    'footer.notice': 'Dispomos de livro de reclamações e elogios'
   });
 
   translations.en = Object.assign({}, translations.en, {
@@ -340,6 +342,7 @@
     'nav.coverage': 'Coverage Areas',
     'nav.approach': 'Approach',
     'nav.about': 'About Us',
+    'header.ers': 'ERS Registration: 41619',
     'cta.book': 'Book Appointment',
     'hero.title': 'Healthcare<br><span>at the distance of your contact</span>',
     'hero.body': 'At <u style="color: darkblue;">MEL</u> (Medicina em Linha), we are at the forefront of differentiated <br> medical services, combining the best of telemedicine with in-home <br> medical visits to offer a comprehensive and convenient <br> healthcare experience for all our patients.',
@@ -395,7 +398,8 @@
     'footer.address.line3': 'medicinaemlinha@outlook.pt',
     'footer.copyright': 'Copyright',
     'footer.rights': 'All rights reserved',
-    'footer.template': 'This template is made by'
+    'footer.template': 'This template is made by',
+    'footer.notice': 'We have a complaints and compliments book available'
   });
 
   translations.es = Object.assign({}, translations.es, {
@@ -403,6 +407,7 @@
     'nav.coverage': 'Áreas de Cobertura',
     'nav.approach': 'Enfoque',
     'nav.about': 'Sobre Nosotros',
+    'header.ers': 'Registro ERS: 41619',
     'cta.book': 'Reservar Consulta',
     'hero.title': 'Atención médica<br><span>a distancia de su contacto</span>',
     'hero.body': 'En <u style="color: darkblue;">MEL</u> (Medicina en Línea), nos posicionamos a la vanguardia <br> en la prestación de servicios médicos diferenciados, combinando <br> lo mejor de la telemedicina con la posibilidad de consultas médicas <br> presenciales a domicilio, para ofrecer una experiencia de salud <br> integral y conveniente para todos nuestros usuarios.',
@@ -458,7 +463,8 @@
     'footer.address.line3': 'medicinaemlinha@outlook.pt',
     'footer.copyright': 'Copyright',
     'footer.rights': 'Todos los derechos reservados',
-    'footer.template': 'Este template fue hecho por'
+    'footer.template': 'Este template fue hecho por',
+    'footer.notice': 'Disponemos de libro de reclamaciones y elogios'
   });
 
   function applyTranslations(lang) {
